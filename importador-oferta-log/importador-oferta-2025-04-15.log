@@ -1,0 +1,8 @@
+2025-04-15 01:32:44 INFO Validando chave: 512ca248-4a4a-44fe-b42f-ffe52b97dd78 IP: 192.168.1.24 Porta: 8080
+2025-04-15 01:32:44 INFO cnpj - 34895199000428
+2025-04-15 01:32:44 INFO Codigo retornado da API de validacao de chave: 200
+2025-04-15 01:32:44 INFO Chave validada! inicializando programa.
+2025-04-15 01:35:02 INFO Validando chave: 512ca248-4a4a-44fe-b42f-ffe52b97dd78 API: http://192.168.1.24:8080/validacao-chave-cliente
+2025-04-15 01:35:02 INFO cnpj - 34895199000428
+2025-04-15 01:35:02 INFO Codigo retornado da API de validacao de chave: 200
+2025-04-15 01:35:02 INFO Chave validada! inicializando programa.
