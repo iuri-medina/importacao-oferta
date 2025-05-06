@@ -1,0 +1,55 @@
+2025-05-06 11:26:49 INFO Validando chave: 9931420e-1b0f-4eba-a439-18fb478ce766 API: http://3.133.132.217:8080/validacao-chave-cliente
+2025-05-06 11:26:49 INFO cnpj - 29230750000131
+2025-05-06 11:26:49 INFO Codigo retornado da API: 200
+2025-05-06 11:26:49 INFO Chave valida! inicializando programa.
+2025-05-06 11:27:01 INFO Erro ao processar linha 1: [Ljava.lang.StackTraceElement;@4c64c857
+2025-05-06 11:27:01 INFO Produto não encontrado na linha: 1
+2025-05-06 11:27:01 INFO Erro ao processar linha 3: [Ljava.lang.StackTraceElement;@fd5232b
+2025-05-06 11:27:01 INFO Produto não encontrado na linha: 3
+2025-05-06 11:27:01 INFO Produto não encontrado na linha: 4
+2025-05-06 11:27:01 INFO Codigo de barras invalido: 
+2025-05-06 11:27:01 INFO Produto não encontrado na linha: 5
+2025-05-06 11:27:01 INFO Codigo de barras invalido: 
+2025-05-06 11:27:01 INFO Produto não encontrado na linha: 6
+2025-05-06 11:27:01 INFO Codigo de barras invalido: 
+2025-05-06 11:27:01 INFO Produto não encontrado na linha: 7
+2025-05-06 11:27:01 INFO Codigo de barras invalido: 
+2025-05-06 11:27:01 INFO Produto não encontrado na linha: 8
+2025-05-06 11:27:01 INFO Codigo de barras invalido: 
+2025-05-06 11:27:01 INFO Produto não encontrado na linha: 9
+2025-05-06 11:27:01 INFO Codigo de barras invalido: 
+2025-05-06 11:27:01 INFO Produto não encontrado na linha: 10
+2025-05-06 11:27:01 INFO Codigo de barras invalido: 
+2025-05-06 11:27:01 INFO Produto não encontrado na linha: 11
+2025-05-06 11:27:01 INFO Codigo de barras invalido: 
+2025-05-06 11:27:01 INFO Produto não encontrado na linha: 12
+2025-05-06 11:27:01 INFO Codigo de barras invalido: 
+2025-05-06 11:27:01 INFO Produto não encontrado na linha: 13
+2025-05-06 11:27:01 INFO Codigo de barras invalido: 
+2025-05-06 11:27:01 INFO Produto não encontrado na linha: 14
+2025-05-06 11:27:01 INFO Codigo de barras invalido: 
+2025-05-06 11:27:01 INFO Produto não encontrado na linha: 15
+2025-05-06 11:27:01 INFO Codigo de barras invalido: 
+2025-05-06 11:27:01 INFO Produto não encontrado na linha: 16
+2025-05-06 11:27:01 INFO Codigo de barras invalido: 
+2025-05-06 11:27:01 INFO Produto não encontrado na linha: 17
+2025-05-06 11:27:01 INFO Codigo de barras invalido: 
+2025-05-06 11:27:01 INFO Produto não encontrado na linha: 18
+2025-05-06 11:27:01 INFO Codigo de barras invalido: 
+2025-05-06 11:27:01 INFO Produto não encontrado na linha: 19
+2025-05-06 11:27:01 INFO Codigo de barras invalido: 
+2025-05-06 11:27:01 INFO Produto não encontrado na linha: 20
+2025-05-06 11:27:01 INFO Codigo de barras invalido: 
+2025-05-06 11:27:01 INFO Produto não encontrado na linha: 21
+2025-05-06 11:27:01 INFO Codigo de barras invalido: 
+2025-05-06 11:27:01 INFO Produto não encontrado na linha: 22
+2025-05-06 11:37:40 INFO Validando chave: 9931420e-1b0f-4eba-a439-18fb478ce766 API: http://3.133.132.217:8080/validacao-chave-cliente
+2025-05-06 11:37:40 INFO cnpj - 29230750000131
+2025-05-06 11:37:41 INFO Codigo retornado da API: 200
+2025-05-06 11:37:41 INFO Chave valida! inicializando programa.
+2025-05-06 11:37:53 INFO Produto não encontrado na linha: 4
+2025-05-06 11:44:09 INFO Validando chave: 9931420e-1b0f-4eba-a439-18fb478ce766 API: http://3.133.132.217:8080/validacao-chave-cliente
+2025-05-06 11:44:09 INFO cnpj - 29230750000131
+2025-05-06 11:44:09 INFO Codigo retornado da API: 200
+2025-05-06 11:44:09 INFO Chave valida! inicializando programa.
+2025-05-06 11:44:21 INFO Produto não encontrado na linha: 4

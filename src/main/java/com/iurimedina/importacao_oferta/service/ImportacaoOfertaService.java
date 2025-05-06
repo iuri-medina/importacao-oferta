@@ -82,9 +82,12 @@ public class ImportacaoOfertaService {
                     (int) csvRecord.getRecordNumber(),
                     csvRecord.get(0),  // codigoBarras
                     csvRecord.get(1),  // preco
-                    csvRecord.get(2),  // connect
-                    csvRecord.get(3),  // precoConnect
-                    csvRecord.get(4)   // ativePague 
+                    csvRecord.get(2),  // precoConnect
+                    csvRecord.get(3),  // ativePague 
+                    csvRecord.get(4),  // encerrarOferta
+                    csvRecord.get(5),  // bloquearOferta
+                    csvRecord.get(6),  // limitarOfertaConnect
+                    csvRecord.get(7)   // prioridadeConnect
                 );
                 ofertas.add(oferta);
             }
@@ -125,7 +128,6 @@ public class ImportacaoOfertaService {
                 
             } catch (Exception e) {
                 LogDiario.info("Erro ao processar linha " + ofertaCSV.getNumeroLinhaCSV() + ": " + e.getMessage());
-                registrarProdutoNaoEncontrado(ofertaCSV.getNumeroLinhaCSV());
             }
         }
     }
@@ -149,7 +151,6 @@ public class ImportacaoOfertaService {
                                Oferta oferta, ProdutoInfoDTO produtoInfo) {
         
         OfertaItem ofertaItem = new OfertaItem();
-        //Produto produto = new Produto(produtoInfo.getIdProduto());
         ofertaItem.setIdProduto(produtoInfo.getIdProduto());
         ofertaItem.setPrecoOferta(converterParaBigDecimal(ofertaCSV.getPreco()));
         ofertaItem.setOferta(oferta);
@@ -164,20 +165,45 @@ public class ImportacaoOfertaService {
         ofertaItem.setIcmsDebito(produtoInfo.getIcmsDebito());
         ofertaItem.setPisCofinsDebito(produtoInfo.getPisCofinsDebito());
         
+        if(checarOferta(ofertaCSV.getQtdEncerrarOferta()).isValido()) {
+        	ofertaItem.setEncerraOferta(true);
+            ofertaItem.setEncerraOfertaItens(checarOferta(ofertaCSV.getQtdEncerrarOferta()).getValor());
+        }
+        
+        if(checarOferta(ofertaCSV.getQtdBloquearOferta()).isValido()) {
+        	ofertaItem.setBloquearOferta(true);
+            ofertaItem.setBloquearOfertaItens(BigDecimal.valueOf(checarOferta(ofertaCSV.getQtdBloquearOferta()).getValor()));
+        }
+        
+        
+        
         
         
         OfertaItem itemSalvo = ofertaItemRepository.save(ofertaItem);
         
-        if ("sim".equalsIgnoreCase(ofertaCSV.getConnect())) {
-        	if("sim".equalsIgnoreCase(ofertaCSV.getAtivePague())) {
-        		criarItemOfertaConnect(itemSalvo, produtoInfo, ofertaCSV.getPrecoConnect(), true);
-        	}
-        	else {
-                criarItemOfertaConnect(itemSalvo, produtoInfo, ofertaCSV.getPrecoConnect(), false);
-        	}
+        if (isOfertaConnect(ofertaCSV.getPrecoConnect())) {
+        	criarItemOfertaConnect(itemSalvo, produtoInfo, ofertaCSV.getPrecoConnect(), isBooleano(ofertaCSV.getAtivePague()), checarOferta(ofertaCSV.getQtdLimitarOfertaConnect()), isBooleano(ofertaCSV.getPrioridadeConnect()));
         }
     }
-
+    
+    public boolean isOfertaConnect(String precoConnect) {
+    	if(!precoConnect.isBlank() && Double.parseDouble(precoConnect.replace(",", ".")) > 0) return true;
+    	
+    	return false;
+    }
+    
+    public boolean isBooleano(String booleano) {
+    	if("sim".equalsIgnoreCase(booleano)) return true;
+    	
+    	return false;
+    }
+    
+    public CheckResult checarOferta(String qtdEncerrarOuBloquearOuLimitarOferta) {
+    	if(!qtdEncerrarOuBloquearOuLimitarOferta.isBlank() && Integer.parseInt(qtdEncerrarOuBloquearOuLimitarOferta) > 0) return new CheckResult(true, Integer.parseInt(qtdEncerrarOuBloquearOuLimitarOferta));
+    	
+    	return new CheckResult(false, null);
+    }
+    
     private BigDecimal converterParaBigDecimal(String valor) {
         try {
             return new BigDecimal(valor.replace(",", "."));
@@ -187,13 +213,19 @@ public class ImportacaoOfertaService {
         }
     }
 
-    private void criarItemOfertaConnect(OfertaItem ofertaItem, ProdutoInfoDTO produtoInfo, String precoConnect, Boolean ativePague) {
+    private void criarItemOfertaConnect(OfertaItem ofertaItem, ProdutoInfoDTO produtoInfo, String precoConnect, Boolean ativePague, CheckResult limitarOfertaConnect, Boolean prioridadeConnect) {
         OfertaItemConnect connect = new OfertaItemConnect();
         connect.setOfertaItem(ofertaItem);
         connect.setDescricao(produtoInfo.getDescricaoCompleta());
         connect.setPrecoConnect(converterParaBigDecimal(precoConnect));
         connect.setTipoOrigemImagem(1);
         connect.setAtivePague(ativePague);
+        if(limitarOfertaConnect.isValido()) {
+        	connect.setLimitarOferta(true);
+        	connect.setQuantidadeLimitarOferta(limitarOfertaConnect.getValor());
+        }
+        connect.setPrioridade(prioridadeConnect);
+        
         
         ofertaItemConnectRepository.save(connect);
     }

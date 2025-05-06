@@ -6,3 +6,14 @@
 2025-04-15 01:35:02 INFO cnpj - 34895199000428
 2025-04-15 01:35:02 INFO Codigo retornado da API de validacao de chave: 200
 2025-04-15 01:35:02 INFO Chave validada! inicializando programa.
+2025-04-15 18:01:27 INFO Validando chave: 512ca248-4a4a-44fe-b42f-ffe52b97dd78 API: http://192.168.1.24:8080/validacao-chave-cliente
+2025-04-15 18:01:27 INFO cnpj - 34895199000428
+2025-04-15 18:01:29 INFO Connection refused: connect
+2025-04-15 18:01:31 INFO Chave invalida, contate o suporte.
+2025-04-15 18:04:13 INFO Validando chave: 9931420e-1b0f-4eba-a439-18fb478ce766 API: http://3.133.132.217:8080/validacao-chave-cliente
+2025-04-15 18:04:13 INFO cnpj - 29230750000131
+2025-04-15 18:04:13 INFO Codigo retornado da API: 200
+2025-04-15 18:04:13 INFO Chave valida! inicializando programa.
+2025-04-15 18:08:04 INFO Produto não encontrado na linha: 4
+2025-04-15 18:08:04 INFO Codigo de barras invalido: 
+2025-04-15 18:08:04 INFO Produto não encontrado na linha: 5
